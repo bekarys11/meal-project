@@ -7,7 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import NewForm from './components/NewForm.jsx';
-
+import Details from './pages/Details.jsx';
+import { store } from './store/index.js'
+import { Provider } from 'react-redux';
 
 const router = createBrowserRouter([
   {
@@ -16,13 +18,19 @@ const router = createBrowserRouter([
     errorElement: <p>Произошла ошибка</p>,
   },
   {
-    path: "/form",
+    path: "/categories",
     element: <NewForm />
+  },
+  {
+    path: "/restaurants/:id",
+    element: <Details />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )
