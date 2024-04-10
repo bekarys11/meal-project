@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import './App.css'
-import { createClient } from '@supabase/supabase-js';
 import Modal from './components/Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { increase, setData, setSelectedItem } from './hooks/orderReducer';
 import MealCard from './components/MealCard';
+import { supabase } from './api/api';
 
-const supabase = createClient("https://vbjvlbaapwbzhpmjtnkr.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZianZsYmFhcHdiemhwbWp0bmtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NTcwMjcsImV4cCI6MjAyNjMzMzAyN30.MnNuDljYgITjt5m35rgIq2Qi81RyBroSzUZkwAl8jSA");
+
 
 function App() {
   const order = useSelector((state) => state.order.data)

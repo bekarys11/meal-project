@@ -10,6 +10,7 @@ import NewForm from './components/NewForm.jsx';
 import Details from './pages/Details.jsx';
 import { store } from './store/index.js'
 import { Provider } from 'react-redux';
+import TodosPage from './pages/TodosPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/restaurants/:id",
     element: <Details />
+  },
+  {
+    path: "/todos",
+    element: <TodosPage />
   }
 ]);
 
