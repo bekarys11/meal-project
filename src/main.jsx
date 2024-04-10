@@ -11,6 +11,7 @@ import Details from './pages/Details.jsx';
 import { store } from './store/index.js'
 import { Provider } from 'react-redux';
 import TodosPage from './pages/TodosPage.jsx';
+import PostsPage from './pages/PostsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/todos",
     element: <TodosPage />
+  },
+  {
+    path: "/posts",
+    element: <PostsPage />
   }
 ]);
 

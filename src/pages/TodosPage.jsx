@@ -4,7 +4,7 @@ function TodosPage() {
     const { data, isLoading, error, isError } = useGetTodosQuery();
     const { data: todo, isLoading: areTodosLoading } = useGetTodosByIdQuery(1)
 
-    if (isLoading && areTodosLoading) {
+    if (isLoading || areTodosLoading) {
         return (
             <p>Идет загрузка...</p>
         )
