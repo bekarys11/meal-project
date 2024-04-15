@@ -12,8 +12,10 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "@supabase/supabase-js": "^2.39.8",
+    "@uiw/react-steps": "^4.22.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
+    "rc-steps": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",

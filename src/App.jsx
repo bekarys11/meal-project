@@ -2,15 +2,17 @@ import { useEffect } from 'react';
 import './App.css'
 import Modal from './components/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { increase, setData, setSelectedItem } from './hooks/orderReducer';
+import { addToOrderedItems, closeModal, increase, setData, setSelectedItem, changeQuantity } from './hooks/orderReducer';
 import MealCard from './components/MealCard';
 import { supabase } from './api/api';
+import Checkout from './components/Checkout';
 
 
 
 function App() {
   const order = useSelector((state) => state.order.data)
   const selectedItem = useSelector(state => state.order.selectedItem);
+  const orderedItems = useSelector(state => state.order.orderedItems);
   const dispatch = useDispatch()
 
   async function getFood() {
@@ -48,6 +50,8 @@ function App() {
           quantity={selectedItem.quantity}
           sum={selectedItem.sum}
           increase={() => dispatch(increase(selectedItem.quantity))}
+          onClose={() => dispatch(closeModal())}
+          add={() => dispatch(addToOrderedItems(selectedItem))}
         />
       }
 
@@ -59,7 +63,10 @@ function App() {
         })
       }
 
-
+      <Checkout
+        meals={orderedItems}
+        changeQuantity={({ id, quantity }) => dispatch(changeQuantity({ id, quantity }))}
+      />
     </div>
   )
 

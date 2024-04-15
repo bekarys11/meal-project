@@ -12,6 +12,7 @@ import { store } from './store/index.js'
 import { Provider } from 'react-redux';
 import TodosPage from './pages/TodosPage.jsx';
 import PostsPage from './pages/PostsPage.jsx';
+import OrderForm from './pages/OrderForm.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/posts",
     element: <PostsPage />
+  },
+  {
+    path: "/form",
+    element: <OrderForm />
   }
 ]);
 

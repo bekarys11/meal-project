@@ -1,6 +1,7 @@
-function Modal({ description, quantity, sum, heading, price, increase }) {
+function Modal({ description, quantity, sum, heading, price, increase, onClose, add }) {
     return (
         <div className="modal">
+            <button onClick={onClose}>X</button>
             <h2>{heading}</h2>
             <p>{description}</p>
             <div>
@@ -8,7 +9,7 @@ function Modal({ description, quantity, sum, heading, price, increase }) {
                 <span>{quantity}</span>
                 <button onClick={increase}>+</button>
             </div>
-            <button>add for € {sum}</button>
+            <button onClick={add}>add for € {sum}</button>
         </div>
     );
 }
